@@ -1,0 +1,11 @@
+{
+  "name": "misw-4103-202312-pruebas-automatizadas",
+  "version": "1.0.0",
+  "description": "Repositorio del poryecto de pruebas automatizadas",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "server/scripts/main.sh"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -43,7 +43,7 @@ function main () {
     export GHOST_VERSION
     export MYSQL_VERSION
     export GHOST_PORT
-    docker compose up -d --build
+    docker-compose up -d --build
 }
 
 processInvocation $@
