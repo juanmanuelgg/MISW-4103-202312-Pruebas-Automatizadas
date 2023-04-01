@@ -40,7 +40,7 @@ function deleteVolumesFolders () {
 function main () {
     export GHOST_VERSION
     export MYSQL_VERSION
-    docker compose down -v --rmi all
+    docker-compose down -v --rmi all
 }
 
 processInvocation $@

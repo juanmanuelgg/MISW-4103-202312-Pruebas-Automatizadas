@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "hashicorp.terraform",
+    "esbenp.prettier-vscode",
+    "pkief.material-icon-theme"
+  ]
+}
