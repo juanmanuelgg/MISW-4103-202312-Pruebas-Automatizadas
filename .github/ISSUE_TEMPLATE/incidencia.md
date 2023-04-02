@@ -1,5 +1,5 @@
 ---
-name: Incidencias
+name: Incidencia
 about: reporte de una incidencia
 title: '[BUG] <title>'
 labels: Bug, Needs Triage
