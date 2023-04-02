@@ -11,6 +11,10 @@ GHOST_VERSION=
 MYSQL_VERSION=
 GHOST_PORT=
 
+function has_command() {
+        command -v $1 > /dev/null
+}
+
 function processInvocation () {
     while getopts "g:m:p:h" opt; do
         case ${opt} in
@@ -43,7 +47,11 @@ function main () {
     export GHOST_VERSION
     export MYSQL_VERSION
     export GHOST_PORT
-    docker-compose up -d --build
+    if has_command docker-compose; then
+        docker-compose up -d --build
+    else
+        docker compose up -d --build
+    fi
 }
 
 processInvocation $@

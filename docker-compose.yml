@@ -1,33 +1,33 @@
 # Tomado de: https://hub.docker.com/_/ghost/
 # Sección: Production mode ... via docker stack deploy or docker-compose
-version: '3.1'
+version: "3.1"
 
 services:
-    ghost:
-        image: ghost:${GHOST_VERSION:-latest}
-        restart: always
-        ports:
-            - ${GHOST_PORT:-8080}:2368
-        environment:
-            # see https://ghost.org/docs/config/#configuration-options
-            database__client: mysql
-            database__connection__host: db
-            database__connection__user: root
-            database__connection__password: unapasswordbiensegura
-            database__connection__database: ghost
-            # this url value is just an example, and is likely wrong for your environment!
-            url: http://localhost:${GHOST_PORT:-8080}
-            # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)
-            #NODE_ENV: development
-        volumes:
-            - ./docker/volumes/ghost-volumes/${GHOST_VERSION:-latest}:/var/lib/ghost/content
+  ghost:
+    image: ghost:${GHOST_VERSION:-latest}
+    restart: always
+    ports:
+      - ${GHOST_PORT:-8080}:2368
+    environment:
+      # see https://ghost.org/docs/config/#configuration-options
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: unapasswordbiensegura
+      database__connection__database: ghost
+      # this url value is just an example, and is likely wrong for your environment!
+      url: http://localhost:${GHOST_PORT:-8080}
+      # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)
+      #NODE_ENV: development
+    volumes:
+      - ./docker/volumes/ghost-volumes/${GHOST_VERSION:-latest}:/var/lib/ghost
 
-    db:
-        image: mysql:${MYSQL_VERSION:-latest}
-        restart: always
-        ports:
-            - 3306:3306
-        environment:
-            MYSQL_ROOT_PASSWORD: unapasswordbiensegura
-        volumes:
-            - ./docker/volumes/mysql-volumes/${MYSQL_VERSION:-latest}:/var/lib/mysql
+  db:
+    image: mysql:${MYSQL_VERSION:-latest}
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: unapasswordbiensegura
+    volumes:
+      - ./docker/volumes/mysql-volumes/${MYSQL_VERSION:-latest}:/var/lib/mysql
