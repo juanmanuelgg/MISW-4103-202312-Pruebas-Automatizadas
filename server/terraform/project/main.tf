@@ -14,16 +14,16 @@ provider "digitalocean" {
 
 # Obtener la llave SSH
 data "digitalocean_ssh_key" "default" {
-  name = "Terraform-DigitalOcean-key"
+  name = "Pruebas-DigitalOcean-key"
 }
 
 data "digitalocean_vpc" "default" {
-  name = "showcase-network"
+  name = "pruebas-network"
 }
 
 # Create a new tag
 resource "digitalocean_tag" "default" {
-  name = "webapp"
+  name = "apb"
 }
 
 # Create a web server
@@ -35,6 +35,7 @@ resource "digitalocean_droplet" "default" {
   monitoring        = true
   graceful_shutdown = true
   ssh_keys          = [data.digitalocean_ssh_key.default.id]
+  user_data         = file(var.do_user_data_file)
   vpc_uuid          = data.digitalocean_vpc.default.id
   tags              = [digitalocean_tag.default.id]
 }
@@ -130,7 +131,7 @@ resource "digitalocean_firewall" "web" {
 }
 
 data "digitalocean_project" "default" {
-  name = "proyecto-museos"
+  name = "proyecto-pruebas"
 }
 
 resource "digitalocean_project_resources" "default" {

@@ -14,12 +14,12 @@ provider "digitalocean" {
 }
 
 resource "digitalocean_ssh_key" "default" {
-  name       = "Terraform-DigitalOcean-key"
+  name       = "Pruebas-DigitalOcean-key"
   public_key = file(var.do_ssh_pub_key_file)
 }
 
 resource "digitalocean_vpc" "default" {
-  name     = "showcase-network"
+  name     = "pruebas-network"
   region   = var.region
   ip_range = "10.10.11.0/24"
 }
@@ -29,8 +29,8 @@ resource "digitalocean_reserved_ip" "default" {
 }
 
 resource "digitalocean_project" "default" {
-  name        = "proyecto-museos"
-  description = "Un proyecto web del curso: Conceptos básicos de ingeniería de software para la web."
-  purpose     = "Web Application"
+  name        = "proyecto-pruebas"
+  description = "Un proyecto web del curso: Pruebas utomatizadas de software."
+  purpose     = "App bajo pruebas"
   environment = "Development"
 }
