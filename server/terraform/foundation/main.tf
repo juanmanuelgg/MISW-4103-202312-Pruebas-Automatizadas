@@ -21,7 +21,7 @@ resource "digitalocean_ssh_key" "default" {
 resource "digitalocean_vpc" "default" {
   name     = "pruebas-network"
   region   = var.region
-  ip_range = "10.10.11.0/24"
+  ip_range = "10.10.12.0/24"
 }
 
 resource "digitalocean_reserved_ip" "default" {

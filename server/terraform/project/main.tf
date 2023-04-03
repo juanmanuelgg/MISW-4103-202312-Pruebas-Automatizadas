@@ -91,7 +91,7 @@ resource "digitalocean_firewall" "web" {
   inbound_rule {
     protocol         = "tcp"
     port_range       = "8080"
-    source_addresses = ["0.0.0.0/0", "::/0"]
+    source_addresses = ["127.0.0.1/8", "::1/128"]
   }
   inbound_rule {
     protocol         = "tcp"
@@ -120,8 +120,8 @@ resource "digitalocean_firewall" "web" {
   }
   outbound_rule {
     protocol              = "tcp"
-    port_range            = "3000"
-    destination_addresses = ["0.0.0.0/0", "::/0"]
+    port_range            = "8080"
+    destination_addresses = ["127.0.0.1/8", "::1/128"]
   }
   outbound_rule {
     protocol              = "tcp"

@@ -26,7 +26,8 @@ terraform -chdir=server/terraform/project apply
 if asksure '¿Quiere configurar su máquina? ¿Ya esta prendida? (Y/N)?'; then
   # Borrarla de known_hosts
   ssh-keygen -f "${HOME}/.ssh/known_hosts" -R 'appbajopruebas.com' || ( echo 'no se puede continuar' && exit 1)
-  ssh -i ~/.ssh/id_rsa terramino@appbajopruebas.com 'bash -s' < server/scripts/install-app.sh || ( echo 'no se puede instalar el sw' && exit 2)
+  scp -i ~/.ssh/id_rsa docker-compose.yml root@appbajopruebas.com:~
+  ssh -i ~/.ssh/id_rsa root@appbajopruebas.com 'bash -s' < server/scripts/install-app.sh || ( echo 'no se puede instalar el sw' && exit 2)
 fi
 
 exit 0

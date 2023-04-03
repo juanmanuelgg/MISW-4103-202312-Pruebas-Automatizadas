@@ -7,6 +7,10 @@ variable "do_ssh_pub_key_file" {
   default = "../../../secure/do_rsa.pub"
 }
 
+variable "do_user_data_file" {
+  default = "../../../secure/terramino.yml"
+}
+
 variable "region" {
   default = "nyc3"
 }
