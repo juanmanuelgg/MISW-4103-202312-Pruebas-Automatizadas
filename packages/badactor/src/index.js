@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-app.use(cors({ origin: "*" }));
 
 const PORT = process.env.PROTO_PORT || 5000;
 
@@ -12,8 +11,10 @@ app.get("/", (req, res) => {
 
   console.log(`ip: ${ipVisitante}, cookie: ${cookie}`);
 
-  res.send("OK");
+  res.status(200).send("OK");
 });
+
+app.use(cors({ origin: "*" }));
 
 app.listen(PORT, () => {
   console.log(
