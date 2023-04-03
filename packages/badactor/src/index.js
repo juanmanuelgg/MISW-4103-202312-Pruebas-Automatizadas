@@ -18,6 +18,6 @@ app.use(cors({ origin: "*" }));
 
 app.listen(PORT, () => {
   console.log(
-    `Autenticador proto-token ejecutandose en el puerto ${PORT} (http://localhost:${PORT}/)`
+    `BadActor ejecutandose en el puerto ${PORT} (http://localhost:${PORT}/)`
   );
 });
