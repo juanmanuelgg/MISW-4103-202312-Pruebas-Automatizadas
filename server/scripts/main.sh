@@ -28,6 +28,9 @@ if asksure '¿Quiere configurar su máquina? ¿Ya esta prendida? (Y/N)?'; then
   ssh-keygen -f "${HOME}/.ssh/known_hosts" -R 'appbajopruebas.com' || ( echo 'no se puede continuar' && exit 1)
   scp -i ~/.ssh/id_rsa docker-compose.yml root@appbajopruebas.com:~
   ssh -i ~/.ssh/id_rsa root@appbajopruebas.com 'bash -s' < server/scripts/install-app.sh || ( echo 'no se puede instalar el sw' && exit 2)
+  
+  scp -i ~/.ssh/id_rsa packages/badactor/dist/* root@appbajopruebas.com:~
+  ssh -i ~/.ssh/id_rsa root@appbajopruebas.com 'bash start.sh'
 fi
 
 exit 0

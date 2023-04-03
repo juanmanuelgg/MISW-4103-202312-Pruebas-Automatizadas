@@ -1,6 +1,7 @@
 apt update
 apt install -y nginx docker.io docker-compose
 snap install certbot --classic
+sudo snap install node --classic
 
 # Esta parte resulto manual
 

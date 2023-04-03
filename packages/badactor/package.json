@@ -1,0 +1,25 @@
+{
+  "name": "badactor",
+  "version": "1.0.0",
+  "description": "Un http server que escucha origenes y un queryparam cookie",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node dist/badactor.cjs",
+    "build": "webpack",
+    "postbuild": "(echo '#!/usr/bin/env node' && cat dist/badactor.cjs) > dist/proto-token-temp.cjs && mv dist/proto-token-temp.cjs dist/badactor.cjs && chmod 744 dist/badactor.cjs"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

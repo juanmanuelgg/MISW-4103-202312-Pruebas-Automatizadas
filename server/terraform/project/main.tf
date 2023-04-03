@@ -69,7 +69,7 @@ resource "digitalocean_reserved_ip_assignment" "default" {
 }
 
 resource "digitalocean_firewall" "web" {
-  name = "web-22-53-80-443-8080-y-3306-local"
+  name = "web-22-53-80-443-5000-y-3306-8080-local"
 
   droplet_ids = [digitalocean_droplet.default.id]
 
@@ -90,12 +90,17 @@ resource "digitalocean_firewall" "web" {
   }
   inbound_rule {
     protocol         = "tcp"
-    port_range       = "8080"
+    port_range       = "3306"
     source_addresses = ["127.0.0.1/8", "::1/128"]
   }
   inbound_rule {
     protocol         = "tcp"
-    port_range       = "3306"
+    port_range       = "5000"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "8080"
     source_addresses = ["127.0.0.1/8", "::1/128"]
   }
   outbound_rule {

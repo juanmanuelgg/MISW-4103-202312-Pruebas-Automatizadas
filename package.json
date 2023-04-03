@@ -1,9 +1,14 @@
 {
   "name": "misw-4103-202312-pruebas-automatizadas",
   "version": "1.0.0",
+  "main": "src/index.mjs",
+  "type": "module",
   "description": "Repositorio del poryecto de pruebas automatizadas",
-  "main": "index.js",
+  "workspaces": [
+    "packages/badactor"
+  ],
   "scripts": {
+    "start:badactor": "npm start --workspace=packages/badactor",
     "deploy": "server/scripts/main.sh"
   },
   "author": "",
