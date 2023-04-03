@@ -1,8 +1,8 @@
 #!/bin/bash
 
 USAGE="Modo de uso: $0 [-g 'x.y.z' -m 'x.y.z'] [-h]     \n
-	-u Ghost version                                    \n
-	-H MySQL version                                    \n
+	-g Ghost version                                    \n
+	-m MySQL version                                    \n
     -h Mostrar esta ayuda                               \n
 "
 
